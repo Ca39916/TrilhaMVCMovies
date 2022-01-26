@@ -1,0 +1,103 @@
+﻿@model MvcMovie.Models.Movie
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Director)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gross)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gross)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+    </dl>
+</div>
+
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<div class="form-group">
+
+    @Html.LabelFor(model => model.ImageUrl,
+    htmlAttributes: new { @class = "contro l-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.ImageUrl, new
+        {
+            htmlAttributes = new { @class = "form- control" }
+        })
+        @Html.ValidationMessageFor(model => model.ImageUrl, "", new
+        {
+        @class = "text- danger"
+        })
+    </div>
+</div>
+
+<dd>
+    @if (Model.ImageUrl != null)
+    {
+        <img width="200" src="@Model.ImageUrl" alt=@Model.Title>
+    }
+
+    else
+    {
+        @:url image not available
+    }
+</dd>
+
+<!-- Exercicio 5 -->
+<img width="200" src="@Url.Action("GetImage", "Movie", new {id=Model. ID})" />
+
+

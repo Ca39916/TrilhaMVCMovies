@@ -1,0 +1,46 @@
+﻿@model IEnumerable<MvcMovie.Models.Log>
+
+@{
+    ViewBag.Title = "Log";
+}
+
+<h2>Log</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dataHora)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.operacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.operacaoRealizada)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.dataHora)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.operacao)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.operacaoRealizada)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.dataHora }) |
+        @Html.ActionLink("Details", "Details", new { id = item.dataHora }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.dataHora })
+    </td>
+</tr>
+}
+
+</table>

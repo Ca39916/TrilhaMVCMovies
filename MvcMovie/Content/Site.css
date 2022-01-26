@@ -1,0 +1,70 @@
+﻿body {    /*exercicio 1.9 */
+
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+/* Defina o preenchimento para evitar que o conteúdo atinja as bordas */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Substituir o comportamento de bootstrap padrão onde listas de descrição horizontal
+   irá truncar termos que são muito longos para caber na coluna da esquerda
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* 
+Defina a largura nos elementos de entrada do formulário, pois eles são 100% de largura por padrão */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.jumbotron.vertical-center {
+    margin-bottom: 0; /* Remova a margem inferior padrão de .jumbotron */
+}
+
+
+.vertical-center {
+    min-height: 100%; /* Fallback para unidade vh */
+    min-height: 100vh; /* Você também pode querer usar
+                        propriedade 'altura' em vez disso.
+                        
+                        Observe que para valores percentuais de
+                        propriedades 'height' ou 'min-height',
+                        a 'altura' do elemento pai
+                        deve ser especificado explicitamente.
+  
+                        Neste caso, o pai de '.vertical-center'
+                        é o elemento <body> */
+    /* Torná-lo um contêiner flexível */
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    /*Alinhar o container do bootstrap verticalmente */
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    /* Em navegadores da web legados, como Firefox 9
+     precisamos especificar a largura do contêiner flex */
+    width: 100%;
+    /* Também 'margin: 0 auto' não tem nenhum efeito em itens flexíveis em tais navegadores da web
+     portanto, o contêiner do bootstrap não será mais alinhado ao centro.
+  
+     Portanto, devemos usar as seguintes declarações para centralizá-lo novamente */
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
